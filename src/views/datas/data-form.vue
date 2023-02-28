@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "dataForm",
+  name: 'DataForm',
   data() {
     return {
     }
