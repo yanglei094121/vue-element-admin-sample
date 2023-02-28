@@ -130,6 +130,38 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   {
+    path: '/datas',
+    component: Layout,
+    redirect: '/datas/data-list',
+    alwaysShow: true,
+    name: 'GoodManage',
+    meta: {
+      title: '数据管理',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'data-list',
+        component: () => import('@/views/datas/data-list'),
+        name: 'DataList',
+        meta: {
+          title: '实验记录',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'data-form',
+        component: () => import('@/views/datas/data-form'),
+        name: 'DataForm',
+        meta: {
+          title: '添加实验',
+          roles: ['admin',  'editor'] // or you can only set roles in sub nav
+        }
+      },
+    ]
+  },
+  {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
